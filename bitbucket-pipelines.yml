@@ -1,16 +1,10 @@
-image: hashicorp/terraform:full
 pipelines:
-    default:
-        - step:
-            script:
-                - terraform init
-                - terraform validate
-                - terraform plan
-    branches:
-        master:
-            - step:
-                script:
-                    - terraform init
-                    - terraform validate
-                    - terraform plan
-                    - terraform apply -input=false -auto-approve
+  branches:
+    main:
+    - step:
+        image: hashicorp/terraform:full
+        script:
+          - terraform init -backend-config="access_key=$AKIARXGOOEWMGRGT4WWB" -backend-config="secret_key=$hI2fCqToGJ+c3DVQbyaXaT+7zBUdH3j9k1vO5uVG"
+          - terraform validate
+          - terraform plan
+          - terraform apply -input=false -auto-approve
