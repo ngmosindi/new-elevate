@@ -1,12 +1,11 @@
 image: hashicorp/terraform:full
 pipelines:
     default:
-      	- step:
+        - step:
             script:
-           	- terraform init
-	 	- terraform validate
-         	- terraform plan
-      
+                - terraform init
+                - terraform validate
+                - terraform plan
         - step:
             name: Deploy to dev
             script:
