@@ -1,19 +1,13 @@
 image: hashicorp/terraform:full
 pipelines:
-  default:
-      - step:
-          name: Initiating terraform
-          script:
-            - terraform init
-      - step:
-          name: Validating terraform
-          script:
-            - terraform validate
-      - step:
-          name: Planning terraform
-          script:
-            - terraform plan
-      - step:
-          name: Deploy to dev
-          script:
-            - terraform apply -input=false -auto-approve
+    default:
+      	- step:
+            script:
+           	- terraform init
+	 	- terraform validate
+         	- terraform plan
+      
+        - step:
+            name: Deploy to dev
+            script:
+             	- terraform apply -input=false -auto-approve
